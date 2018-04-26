@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.curso.domain.Categoria;
+import com.example.curso.domain.Cidade;
+import com.example.curso.domain.Estado;
 import com.example.curso.domain.Produto;
 import com.example.curso.repositories.CategoriaRepository;
 import com.example.curso.repositories.ProdutoRepository;
@@ -39,6 +41,13 @@ public class CursomcApplication implements CommandLineRunner{
 		p1.getCategorias().addAll(Arrays.asList(cat1));
 		p2.getCategorias().addAll(Arrays.asList(cat1, cat2));
 		p3.getCategorias().addAll(Arrays.asList(cat1));
+		
+		Estado est1 = new Estado(null, "Minas Gerais");
+		Estado est2 = new Estado(null, "São Paulo");
+		
+		Cidade c1 = new Cidade(null, "Uberlândia", est1);
+		Cidade c2 = new Cidade(null, "São Paulo", est2);
+		Cidade c3 = new Cidade(null, "Campinas", est1);
 		
 		
 		categoriaRepository.saveAll(Arrays.asList(cat1,cat2));
